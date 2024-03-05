@@ -67,11 +67,6 @@ public class HooksCart extends env{
         driver.findElement(By.xpath("//a[@class='action showcart']")).click();
     }
 
-    @And("User click button delete product")
-    public void user_click_button_delete_product() {
-        driver.findElement(By.xpath("//li[@class='item product product-item']//a[@title='Remove item']")).click();
-    }
-
     @Then("User get confirmation modal")
     public void user_get_confirmation_modal() {
         Duration duration = Duration.ofSeconds(3);
@@ -122,7 +117,6 @@ public class HooksCart extends env{
         wait.until(
             ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@data-bind='html: $parent.prepareMessageForHtml(message.text)']"))
         );
-        // driver.quit();
     }
 
     //View cart
@@ -138,8 +132,6 @@ public class HooksCart extends env{
         wait.until(
             ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[contains(text(),'Shopping Cart')]"))
         );
-        
-        //driver.quit();
     }
 
     //Edit Product - Positive
@@ -166,22 +158,30 @@ public class HooksCart extends env{
         wait.until(
             ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@data-bind='html: $parent.prepareMessageForHtml(message.text)']"))
         );
-        // driver.quit();
     }
 
     //Edit Product - Negative
     @Then("User get alert options required field")
     public void user_get_alert_options_required_field() {
         driver.findElement(By.xpath("//div[@class='swatch-attribute size']//div[contains(@id,'super_attribute')]")).isDisplayed();
-        // driver.quit();
     }
     
     //Delete Products from Cart - Positive
+
+    @And("User click button delete product")
+    public void user_click_button_delete_product() {
+        driver.findElement(By.xpath("//a[@title='Remove item']")).click();
+        // Duration duration = Duration.ofSeconds(3);
+        // WebDriverWait wait = new WebDriverWait(driver, duration);
+        // wait.until(
+        //     ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[@class='item product product-item']//a[@title='Remove item']"))
+        // );
+        // driver.findElement(By.xpath("//li[@class='item product product-item']//a[@title='Remove item']")).click();
+    }
     
     @And("User click button Ok")
     public void user_click_button_ok() {
         driver.findElement(By.xpath("//span[normalize-space()='OK']")).click();
-        // driver.quit();
     }
 
     //Delete Products from Cart - Negative
@@ -189,6 +189,5 @@ public class HooksCart extends env{
     @And("User click button Cancel")
     public void user_click_button_cancel() {
         driver.findElement(By.xpath("//span[normalize-space()='Cancel']")).click();
-        // driver.quit();
     }
 }

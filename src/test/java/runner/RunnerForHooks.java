@@ -9,8 +9,8 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "Hooks",
-        tags = "@search", //use and,or to more spesific tags
-        plugin = {"pretty", "html:target/HtmlReport/searchHooks.html"}
+        tags = "@All", //use and,or to more spesific tags
+        plugin = {"pretty", "html:target/HtmlReport/AllHooks.html"}
 )
 
 public class RunnerForHooks {
