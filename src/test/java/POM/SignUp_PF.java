@@ -88,11 +88,13 @@ public class SignUp_PF {
     // }
 
     @Given("User on homepage")
-    public void user_on_homepage() {
+    public void user_on_homepage() throws InterruptedException {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://magento.softwaretestingboard.com/");
+        SignupPage signup = new SignupPage(driver);
+        signup.verifyHomepage();
     }
 
     @Given("User go to Create an Account page")
