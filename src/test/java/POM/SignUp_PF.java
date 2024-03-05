@@ -174,4 +174,18 @@ public class SignUp_PF {
         signup.requiredAlert();
         signup.driverQuit();
     }
+
+    //Positive Test - User Create Account redirect from login page
+
+    @And("User go to Sign In page")
+    public void user_go_to_sign_in_page() {
+        SignupPage signup = new SignupPage(driver);
+        signup.clickSignIn();
+    }
+
+    @And("User click button Create an Account for New Customer")
+    public void user_click_button_create_an_account_for_new_customer() {
+        SignupPage signup = new SignupPage(driver);
+        signup.clickSignUp();
+    }
 }
