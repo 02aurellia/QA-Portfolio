@@ -91,6 +91,7 @@ public class Login extends env{
     public void user_input_email() {
         driver.findElement(By.id("email_address")).sendKeys("qa1@test.com");
     }
+    
     @And("User click button Reset Password")
     public void user_click_button_reset_password() {
         driver.findElement(By.xpath("//button[@class='action submit primary']")).click();
