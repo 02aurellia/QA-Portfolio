@@ -9,7 +9,7 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "Hooks",
-        tags = "@All", //use and,or to more spesific tags
+        tags = "@search or @signup or @cart", //use and,or to more spesific tags
         plugin = {"pretty", "html:target/HtmlReport/AllHooks.html",
                   "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
                  }

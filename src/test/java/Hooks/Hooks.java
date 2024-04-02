@@ -29,7 +29,9 @@ public class Hooks extends env{
 
     @AfterStep
     public static void takeScreenshot(Scenario scenario){
-        final byte [] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-        scenario.attach(screenshot, "image/png", "image");
+        if(scenario.isFailed()){
+            final byte [] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+            scenario.attach(screenshot, "image/png", "image");
+        }
     }
 }
